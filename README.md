@@ -21,6 +21,8 @@ Session 1 → 5 rounds → Session 2 → 5 rounds → Session 3 → 5 rounds →
 
 Each round: random color flashes → player hits matching key → RT recorded → result displayed with live clinical feedback.
 
+https://github.com/user-attachments/assets/your-video-id.mp4
+
 ---
 
 ## Hardware
