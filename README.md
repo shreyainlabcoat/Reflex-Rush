@@ -15,16 +15,20 @@ Clinical applications include early screening for cognitive slowing associated w
 
 ## Demo
 
+### Demo Video
+
+![Demo Video](media/demo.mp4)
+
 ```
 Session 1 → 5 rounds → Session 2 → 5 rounds → Session 3 → 5 rounds → Scorecard
 ```
 
 Each round: random color flashes → player hits matching key → RT recorded → result displayed with live clinical feedback.
-
-https://github.com/user-attachments/demo.mp4
 ---
 
 ## Hardware
+
+### Components
 
 | Component | Details |
 |---|---|
@@ -34,6 +38,16 @@ https://github.com/user-attachments/demo.mp4
 | Buzzer | Passive buzzer on GPIO pin 40 |
 | Camera | Optional — USB or Pi camera for blink detection + live feed |
 | Laptop | Runs the Flask server + dashboard; communicates with Pi via Viam |
+
+### Hardware Setup
+
+![Raspberry Pi](media/pi.jfif)
+
+![Control Board](media/board.jfif)
+
+### Camera
+
+![Pi Camera](media/camera.jfif)
 
 ---
 
