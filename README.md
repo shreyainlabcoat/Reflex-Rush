@@ -1,4 +1,4 @@
-# ⚡ Reflex Rush — Clinical Brain Speed Assessment
+# Reflex Rush — Clinical Brain Speed Assessment
 
 > A real-time, hardware-integrated reaction time game built in 24 hours at **YHack 2026**.  
 > Measures choice reaction time against clinical age/sex norms, with blink-rate tracking and a live leaderboard.
