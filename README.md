@@ -7,7 +7,7 @@
 
 ## What It Does
 
-Reflex Rush is a 4-color choice reaction time (CRT) test running on a **Raspberry Pi** with physical LEDs and buttons, controlled remotely from a laptop over the **Viam robotics SDK**. A color lights up → the player smashes the matching button → the system records their reaction time in milliseconds and scores it against published clinical norms for their age and sex.
+Reflex Rush is a 4-color choice reaction time (CRT) test running on a **Raspberry Pi** with physical LEDs, controlled remotely from a laptop over the **Viam robotics SDK**. A color lights up on the dashboard → the player presses the corresponding keyboard key → the system records their reaction time in milliseconds and scores it against published clinical norms for their age and sex.
 
 Clinical applications include early screening for cognitive slowing associated with Parkinson's disease, MCI, and age-related neurodegeneration. The game also tracks **blink rate** via MediaPipe face mesh — an established early marker in Parkinson's research.
 
@@ -34,8 +34,6 @@ Each round: random color flashes → player hits matching key → RT recorded �
 |---|---|
 | Raspberry Pi | Any model with GPIO (tested on Pi 4) |
 | LEDs | Red, Green, Blue, Yellow — GPIO pins 12, 7, 38, 36 |
-| Buttons | 4 physical buttons mapped to LED colors |
-| Buzzer | Passive buzzer on GPIO pin 40 |
 | Camera | Optional — USB or Pi camera for blink detection + live feed |
 | Laptop | Runs the Flask server + dashboard; communicates with Pi via Viam |
 
@@ -60,14 +58,14 @@ Each round: random color flashes → player hits matching key → RT recorded �
 │   flexrush3.py (Flask API)                          │
 │   ├── /api/state      → game state (polled 10x/sec) │
 │   ├── /api/register   → player name + start game    │
-│   ├── /api/input      → button press events         │
+│   ├── /api/input      → keyboard key presses        │
 │   ├── /api/blink      → blink rate from dashboard   │
 │   ├── /api/leaderboard→ persistent JSON scores      │
 │   └── /api/camera_stream → MJPEG from Pi camera    │
 │                                                     │
 │   d2.html (Dashboard — open in browser)             │
 │   ├── Live camera feed                              │
-│   ├── Color orbs + keyboard control                 │
+│   ├── Color orbs + keyboard control (RGBY keys)    │
 │   ├── Clinical speed range chart (age-adjusted)     │
 │   ├── Blink detection via MediaPipe FaceMesh        │
 │   └── Scorecard modal + leaderboard                 │
@@ -75,7 +73,7 @@ Each round: random color flashes → player hits matching key → RT recorded �
                      │ Viam SDK (cloud relay)
 ┌────────────────────▼────────────────────────────────┐
 │                 RASPBERRY PI                        │
-│   GPIO: LEDs, buttons, buzzer                       │
+│   GPIO: LEDs                                        │
 │   Camera (streamed back to laptop)                  │
 └─────────────────────────────────────────────────────┘
 ```
@@ -155,11 +153,10 @@ VIAM_KEY_ID  = "your-key-id"
 ### GPIO Pin Mapping
 
 ```python
-LED_PINS  = {"RED": "12", "GREEN": "7", "BLUE": "38", "YELLOW": "36"}
-BUZZER_PIN = "40"
+LED_PINS = {"RED": "12", "GREEN": "7", "BLUE": "38", "YELLOW": "36"}
 ```
 
-Adjust these to match your physical wiring.
+Adjust these to match your physical LED wiring on the Raspberry Pi.
 
 ### Run
 
@@ -175,13 +172,11 @@ python flexrush3.py
 
 | Key | Action |
 |---|---|
-| ↓ Arrow | RED |
-| ← Arrow | GREEN |
-| ↑ Arrow | BLUE |
-| → Arrow | YELLOW |
-| Any key | Start session |
-
-Physical Pi buttons are wired to the same color mapping.
+| R | RED |
+| G | GREEN |
+| B | BLUE |
+| Y | YELLOW |
+| Space or Click | Start session |
 
 ---
 
