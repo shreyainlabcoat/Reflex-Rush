@@ -15,12 +15,6 @@ Clinical applications include early screening for cognitive slowing associated w
 
 ## Demo
 
-### Demo Video
-
-<video width="100%" controls>
-  <source src="media/demo (2).mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
 
 ```
 Session 1 → 5 rounds → Session 2 → 5 rounds → Session 3 → 5 rounds → Scorecard
